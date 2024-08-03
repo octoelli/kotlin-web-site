@@ -2,8 +2,7 @@
 
 ## If expression
 
-In Kotlin, `if` is an expression: it returns a value.
-Therefore, there is no ternary operator (`condition ? then : else`) because ordinary `if` works fine in this role.
+Em Kotlin, if é uma expressão: ela retorna um valor. Portanto, não há operador ternário ( condition ? then : else) porque ordinary if funciona bem nessa função.
 
 ```kotlin
 fun main() {
@@ -35,7 +34,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="if-else-if-kotlin"}
 
-Branches of an `if` expression can be blocks. In this case, the last expression is the value of a block:
+Os ramos de uma ifexpressão podem ser blocos. Neste caso, a última expressão é o valor de um bloco:
 
 ```kotlin
 val max = if (a > b) {
@@ -47,13 +46,11 @@ val max = if (a > b) {
 }
 ```
 
-If you're using `if` as an expression, for example, for returning its value or
-assigning it to a variable, the `else` branch is mandatory.
+Se você estiver usando ifcomo uma expressão, por exemplo, para retornar seu valor ou atribuí-lo a uma variável, a elseramificação é obrigatória.
 
 ## When expression
 
-`when` defines a conditional expression with multiple branches. It is similar to the `switch` statement in C-like languages.
-Its simple form looks like this.
+'when" define uma expressão condicional com múltiplas ramificações. É similar à switch declaração em linguagens do tipo C. Sua forma simples se parece com isso.
 
 ```kotlin
 when (x) {
@@ -65,18 +62,13 @@ when (x) {
 }
 ```
 
-`when` matches its argument against all branches sequentially until some branch condition is satisfied.
+'when' compara seu argumento com todos os ramos sequencialmente até que alguma condição de ramo seja satisfeita.
 
-`when` can be used either as an expression or as a statement. If it is used as an expression, the value
-of the first matching branch becomes the value of the overall expression. If it is used as a statement, the values of
-individual branches are ignored. Just like with `if`, each branch can be a block, and its value
-is the value of the last expression in the block.
+'when' pode ser usado como uma expressão ou como uma declaração. Se for usado como uma expressão, o valor do primeiro ramo correspondente se torna o valor da expressão geral. Se for usado como uma declaração, os valores de ramos individuais são ignorados. Assim como com 'if', cada ramo pode ser um bloco, e seu valor é o valor da última expressão no bloco.
 
-The `else` branch is evaluated if none of the other branch conditions are satisfied.
+O ramo 'else' é avaliado se nenhuma das outras condições de ramo for satisfeita.
 
-If `when` is used as an _expression_, the `else` branch is mandatory,
-unless the compiler can prove that all possible cases are covered with branch conditions,
-for example, with [`enum` class](enum-classes.md) entries and [`sealed` class](sealed-classes.md) subtypes).
+Se 'when' for usado como uma _expression_ , o desvio 'else' é obrigatório, a menos que o compilador possa provar que todos os casos possíveis são cobertos com condições de desvio, por exemplo, com entradas [`enum` class](enum-classes.md) classe e subtipos [`sealed` class](sealed-classes.md) subtypes)
 
 ```kotlin
 enum class Bit {
@@ -90,10 +82,10 @@ val numericValue = when (getRandomBit()) {
 }
 ```
 
-In `when` _statements_, the `else` branch is mandatory in the following conditions:
-* `when` has a subject of a `Boolean`, [`enum`](enum-classes.md),
-or [`sealed`](sealed-classes.md) type, or their nullable counterparts.
-* branches of `when` don't cover all possible cases for this subject.
+In `when` _statements_, o `else` branch é obrigatória nas seguintes condições:
+* `when` tem um assunto do tipo `Boolean`, [`enum`](enum-classes.md),
+ou [`sealed`](sealed-classes.md) ou suas contrapartes anuláveis.
+* branches of `when` não cobrem todos os casos possíveis para este assunto.
 
 ```kotlin
 enum class Color {
